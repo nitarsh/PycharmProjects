@@ -1,17 +1,17 @@
-def value(grid,x,y):
+def value_at_position(x, y):
     gsize = len(grid)
     if (x < 0 or y < 0 or x >= gsize or y >= gsize):
         return 0
     return grid[x][y]
 
 
-def next_life_status(grid, x, y):
+def next_life_status(x, y):
     offsets = [-1, 0, 1]
     surr = ((x, y) for x in offsets for y in offsets if x != 0 or y != 0)
     # live_cells = reduce(lambda a, k: a+ value(grid,*k),surr,0)
     live_cells=0
     for tup in surr:
-        live_cells += value(grid, x + tup[0], y + tup[1])
+        live_cells += value_at_position(x + tup[0], y + tup[1])
 
     if (grid[x][y] == 0 and live_cells == 3):
         return 1
@@ -39,7 +39,7 @@ def printer(num):
         return "*"
 
 
-gsize = 30
+gsize = 40
 grid = [[round(random.random()) for x in range(gsize)] for x in range(gsize)]
 # grid = [[0 for x in range(gsize)] for x in range(gsize)]
 grid_cpy = [row[:] for row in grid]
@@ -49,7 +49,7 @@ while (True):
 
     for x in range(gsize):
         for y in range(gsize):
-            grid_cpy[x][y] = next_life_status(grid, x, y)
+            grid_cpy[x][y] = next_life_status(x, y)
             print printer(grid_cpy[x][y]),
         print ""
     print iter
