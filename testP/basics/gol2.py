@@ -1,4 +1,4 @@
-def value(grid, x, y):
+def value(grid,x,y):
     gsize = len(grid)
     if (x < 0 or y < 0 or x >= gsize or y >= gsize):
         return 0
@@ -8,8 +8,8 @@ def value(grid, x, y):
 def next_life_status(grid, x, y):
     offsets = [-1, 0, 1]
     surr = ((x, y) for x in offsets for y in offsets if x != 0 or y != 0)
-    live_cells = reduce(value,)
-
+    # live_cells = reduce(lambda a, k: a+ value(grid,*k),surr,0)
+    live_cells=0
     for tup in surr:
         live_cells += value(grid, x + tup[0], y + tup[1])
 
