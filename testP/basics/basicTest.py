@@ -1,10 +1,10 @@
 import sys, time
 
-for i in xrange(0, 101, 10):
-    print '\r>> You have finished %d%%' % i,
-    sys.stdout.flush()
-    time.sleep(2)
-print
+# for i in xrange(0, 101, 10):
+#     print '\r>> You have finished %d%%' % i,
+#     sys.stdout.flush()
+#     time.sleep(2)
+# print
 
 
 class Fib:
@@ -29,3 +29,10 @@ def __next__(self):
         raise StopIteration
     self.a, self.b = self.b, self.a + self.b
     return fib
+
+
+l = []
+print len(l)
+l.append(None)
+print len(l)
+print l
