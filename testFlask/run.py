@@ -6,7 +6,6 @@ from simple_page.models import simple_page
 app = Flask(__name__)
 app.register_blueprint(simple_page)
 
-#
 # @app.route('/')
 # def hello_world():
 #     return '''<!DOCTYPE html>
@@ -55,8 +54,6 @@ app.register_blueprint(simple_page)
 
 from flask import request, Blueprint, render_template, abort
 from jinja2 import TemplateNotFound
-
-
 
 simple_page = Blueprint('simple_page', __name__,
                         template_folder='templates')

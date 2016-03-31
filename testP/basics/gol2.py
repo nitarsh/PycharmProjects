@@ -8,10 +8,7 @@ def value_at_position(x, y):
 def next_life_status(x, y):
     offsets = [-1, 0, 1]
     surr = ((x, y) for x in offsets for y in offsets if x != 0 or y != 0)
-    # live_cells = reduce(lambda a, k: a+ value(grid,*k),surr,0)
-    live_cells=0
-    for tup in surr:
-        live_cells += value_at_position(x + tup[0], y + tup[1])
+    live_cells = reduce(lambda a, (x1, y1): a + value_at_position(x + x1, y + y1), surr, 0)
 
     if (grid[x][y] == 0 and live_cells == 3):
         return 1
@@ -33,7 +30,7 @@ import random
 
 
 def printer(num):
-    if (num == 0):
+    if num == 0:
         return " "
     else:
         return "*"

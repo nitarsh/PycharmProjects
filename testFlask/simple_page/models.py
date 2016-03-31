@@ -1,2 +1,3 @@
 class simple_page():
-    pass
+    def __init__(self):
+        name = 'simplePageu';
